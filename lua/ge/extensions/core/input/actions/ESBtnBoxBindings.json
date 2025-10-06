@@ -1,0 +1,67 @@
+{
+    "bb_turn_ignition_on": {
+        "cat": "vehicle",
+        "order": 54328,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxIgnition').toggleIgnitionOn()",
+        "title": "ESBtnBox Bindings: Toggle Ignition to ON Position",
+        "desc": "Turns the key to the ON position"
+    },
+    "bb_turn_ignition_acc": {
+        "cat": "vehicle",
+        "order": 54329,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxIgnition').toggleIgnitionAcc()",
+        "title": "ESBtnBox Bindings: Toggle Ignition to Acc Position",
+        "desc": "Turns the key to the Acc position"
+    },
+    "bb_turn_starter": {
+        "cat": "vehicle",
+        "order": 54330,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxIgnition').turnStarter()",
+        "onUp": "extensions.use('ESBtnBoxIgnition').releaseStarter()",
+        "title": "ESBtnBox Bindings: Turn starter",
+        "desc": "Turns the starter"
+    },
+    "bb_turn_high_beams_on": {
+        "cat": "vehicle",
+        "order": 54331,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxHeadlights').toggleHighBeams()",
+        "title": "ESBtnBox Bindings: Toggle High Beams On",
+        "desc": "Turns high beams on and off with the flicker of the toggle switch"
+    },
+    "bb_turn_low_beams_on": {
+        "cat": "vehicle",
+        "order": 54332,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxHeadlights').toggleLowBeams()",
+        "title": "ESBtnBox Bindings: Toggle Low Beams On",
+        "desc": "Turns the low beams on and off with the flicker of the toggle switch"
+    },
+    "bb_turn_lightbar_light": {
+        "cat": "vehicle",
+        "order": 54333,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxHeadlights').toggleLigthbarLight()",
+        "title": "ESBtnBox Bindings: Toggle Lightbar Light On",
+        "desc": "Turns the lights on the lightbar"
+    },
+    "bb_turn_lightbar_sound": {
+        "cat": "vehicle",
+        "order": 54334,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxHeadlights').toggleLigthbarSound()",
+        "title": "ESBtnBox Bindings: Toggle Lightbar Sound On",
+        "desc": "Turns the sound on the lightbar"
+    },
+    "bb_turn_high_four": {
+        "cat": "vehicle",
+        "order": 54335,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxDrivetrain').toggleHighFour()",
+        "title": "ESBtnBox Bindings: Toggle Lightbar Sound On",
+        "desc": "Turns the sound on the lightbar"
+    }
+}
