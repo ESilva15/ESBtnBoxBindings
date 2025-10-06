@@ -7,38 +7,36 @@ local M = {}
 local rangeMode4hi = "4hi"
 local rangeMode4lo = "4lo"
 local rangeMode2hi = "2hi"
-local curRangeMode = rangeMode4hi
+local curRangeMode = rangeMode2hi
+
+local function changeMode(tfc, mode)
+  if curRangeMode == mode then
+    mode = rangeMode2hi
+  end
+
+  tfc.setDriveMode(mode)
+  curRangeMode = mode
+end
 
 local function toggleHighFour()
   -- local transferCase = controller.getControllersByType('transfercaseControl')
   local transferCase = controller.getController('transfercaseControl')
-  if transferCase then
-    if curRangeMode == rangeMode4hi then
-      print("Setting 2lo")
-      transferCase.setDriveMode(rangeMode2hi)
-      curRangeMode = rangeMode2hi
-    else
-      print("Setting 4hi")
-      transferCase.setDriveMode(rangeMode4hi)
-      curRangeMode = rangeMode4hi
-    end
+  if transferCase == nil then
+    return
   end
+
+  changeMode(transferCase, rangeMode4hi)
 end
 
 local function toggleLowFour()
   -- local transferCase = controller.getControllersByType('transfercaseControl')
   local transferCase = controller.getController('transfercaseControl')
-  if transferCase then
-    if curRangeMode == rangeMode4lo then
-      print("Setting 2lo")
-      transferCase.setDriveMode(rangeMode2hi)
-      curRangeMode = rangeMode2hi
-    else
-      print("Setting 4lo")
-      transferCase.setDriveMode(rangeMode4lo)
-      curRangeMode = rangeMode4lo
-    end
+
+  if transferCase == nil then
+    return
   end
+
+  changeMode(transferCase, rangeMode4lo)
 end
 
 M.toggleHighFour = toggleHighFour
