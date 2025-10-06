@@ -20,35 +20,30 @@ local ignitionRunning = 3
 local curIgnitionPos = 0
 
 local function toggleIgnitionAcc()
+  electrics.toggleIgnitionLevelOnUp()
   print("Toggle ignition to accessories")
   if curIgnitionPos == ignitionAcc then
-    electrics.values.ignitionLevel = ignitionOff
+    electrics.setIgnitionLevel(ignitionOff)
     curIgnitionPos = ignitionOff
     controller.mainController.setEngineIgnition(false)
   else
-    electrics.values.ignitionLevel = ignitionAcc
+    electrics.setIgnitionLevel(ignitionAcc)
     curIgnitionPos = ignitionAcc
     controller.mainController.setEngineIgnition(false)
   end
-
-  local ignPos = electrics.values.ignitionLevel
-  print("cur ignition lvl: " .. ignPos or nil)
 end
 
 local function toggleIgnitionOn()
   print("Toggle ignition to on")
   if curIgnitionPos == ignitionOn then
-    electrics.values.ignitionLevel = ignitionOff
+    electrics.setIgnitionLevel(ignitionOff)
     curIgnitionPos = ignitionOff
     controller.mainController.setEngineIgnition(false)
   else
-    electrics.values.ignitionLevel = ignitionOn
+    electrics.setIgnitionLevel(ignitionOn)
     curIgnitionPos = ignitionOn
     controller.mainController.setEngineIgnition(true)
   end
-
-  local ignPos = electrics.values.ignitionLevel
-  print("cur ignition lvl: " .. ignPos or nil)
 end
 
 ----------------------------------------------------------------------------------------------------
@@ -75,9 +70,31 @@ local function releaseStarter()
   controller.mainController.setStarter(false)
 end
 
+-- local function update(dt)
+--   if starterHeld then
+--     -- Engine cranked long enough?
+--     if electrics.values.rpm > 400 then
+--       -- Engine started
+--       controller.mainController.setStarter(false)
+--       setIgnitionLevel(ignitionRunning)
+--       engineRunning = true
+--       starterHeld = false
+--       print("Engine started successfully")
+--     end
+--   end
+
+--   -- If engine was running and ignition is turned off → shut down
+--   if engineRunning and curIgnitionPos < ignitionOn then
+--     controller.mainController.setEngineIgnition(false)
+--     engineRunning = false
+--     print("Engine stopped due to ignition OFF/ACC")
+--   end
+-- end
+
 M.toggleIgnitionAcc = toggleIgnitionAcc
 M.toggleIgnitionOn = toggleIgnitionOn
 M.turnStarter = turnStarter
 M.releaseStarter = releaseStarter
+-- M.update = update
 
 return M
