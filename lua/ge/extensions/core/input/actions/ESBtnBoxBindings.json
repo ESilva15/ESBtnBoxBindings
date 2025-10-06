@@ -61,7 +61,15 @@
         "order": 54335,
         "ctx": "vlua",
         "onDown": "extensions.use('ESBtnBoxDrivetrain').toggleHighFour()",
-        "title": "ESBtnBox Bindings: Toggle Lightbar Sound On",
-        "desc": "Turns the sound on the lightbar"
+        "title": "ESBtnBox Bindings: Toggle High 4",
+        "desc": "Set the range box to high four"
+    },
+    "bb_turn_low_four": {
+        "cat": "vehicle",
+        "order": 54336,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxDrivetrain').toggleLowFour()",
+        "title": "ESBtnBox Bindings: Toggle Low 4",
+        "desc": "Set the range box to low four"
     }
 }
