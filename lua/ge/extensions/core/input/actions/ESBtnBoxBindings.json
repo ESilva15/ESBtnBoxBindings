@@ -71,5 +71,29 @@
         "onDown": "extensions.use('ESBtnBoxDrivetrain').toggleLowFour()",
         "title": "ESBtnBox Bindings: Toggle Low 4",
         "desc": "Set the range box to low four"
+    },
+    "bb_turn_front_diff_lock": {
+        "cat": "vehicle",
+        "order": 54337,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxDrivetrain').toggleFrontDiffLock()",
+        "title": "ESBtnBox Bindings: Toggle Front Diff Lock",
+        "desc": "Lock the front diff"
+    },
+    "bb_turn_rear_diff_lock": {
+        "cat": "vehicle",
+        "order": 54338,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxDrivetrain').toggleRearDiffLock()",
+        "title": "ESBtnBox Bindings: Toggle Rear Diff Lock",
+        "desc": "Lock the rear diff"
+    },
+    "bb_turn_both_diff_locks": {
+        "cat": "vehicle",
+        "order": 54339,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxDrivetrain').toggleBothDiffLock()",
+        "title": "ESBtnBox Bindings: Toggle Both Diff Locks",
+        "desc": "Lock front and rear diffs"
     }
 }
