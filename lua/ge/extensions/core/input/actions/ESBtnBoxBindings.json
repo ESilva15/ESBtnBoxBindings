@@ -95,5 +95,13 @@
         "onDown": "extensions.use('ESBtnBoxDrivetrain').toggleBothDiffLock()",
         "title": "ESBtnBox Bindings: Toggle Both Diff Locks",
         "desc": "Lock front and rear diffs"
+    },
+    "bb_brake_light_killswitch": {
+        "cat": "vehicle",
+        "order": 54340,
+        "ctx": "vlua",
+        "onDown": "extensions.use('ESBtnBoxHeadlights').toggleBrakeLights()",
+        "title": "ESBtnBox Bindings: Toggle Brake Lights",
+        "desc": "Toggles the brake lights for those proper police runs"
     }
 }

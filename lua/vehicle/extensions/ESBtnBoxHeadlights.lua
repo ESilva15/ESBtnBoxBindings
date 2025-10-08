@@ -8,6 +8,7 @@ local M = {}
 local headlightsOff = 0
 local lowBeams = 1
 local highBeams = 2
+local brakeLightSwitch = false
 
 -- I will be forcing each state due to my controls not being sequential
 -- I have a toggle switch (On - Off - On) and it will control both low and high beams, so
@@ -43,6 +44,14 @@ local function toggleLowBeams()
   end
 end
 
+local function toggleBrakeLights()
+  brakeLightSwitch = not brakeLightSwitch
+end
+
+M.toggleHighBeams = toggleHighBeams
+M.toggleLowBeams = toggleLowBeams
+M.toggleBrakeLights = toggleBrakeLights
+
 ----------------------------------------------------------------------------------------------------
 -- Lightbar handling
 ----------------------------------------------------------------------------------------------------
@@ -73,14 +82,16 @@ local function turnLightbarSound()
   end
 end
 
-M.toggleHighBeams = toggleHighBeams
-M.toggleLowBeams = toggleLowBeams
 M.toggleLigthbarLight = turnLightbarLight
 M.toggleLigthbarSound = turnLightbarSound
 
 local myTimer = 0
 local requestToReset = false
 local function updateGFX(dt)
+  if brakeLightSwitch then
+    electrics.values.brake = 0
+  end
+
   if not requestToReset then
     return
   end
