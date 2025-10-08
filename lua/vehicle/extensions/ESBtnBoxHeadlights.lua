@@ -28,7 +28,6 @@ end
 -- HeadLight handling
 ----------------------------------------------------------------------------------------------------
 local function toggleHighBeams()
-  print("toggling high beams")
   if currentHeadlightMode == highBeams then
     setHeadlightsTo(headlightsOff)
   else
@@ -37,7 +36,6 @@ local function toggleHighBeams()
 end
 
 local function toggleLowBeams()
-  print("toggling low beams")
   if currentHeadlightMode == lowBeams then
     setHeadlightsTo(headlightsOff)
   else
@@ -53,23 +51,25 @@ local lightbarOn = 1
 local lightbarWithSound = 2
 local lightbarCurrentMode = 0
 
+
+local function setLightbarMode(mode)
+  electrics.set_lightbar_signal(mode)
+  lightbarCurrentMode = mode
+end
+
 local function turnLightbarLight()
   if lightbarCurrentMode == lightbarOn then
-    electrics.set_lightbar_signal(lightbarOff)
-    lightbarCurrentMode = lightbarOff
+    setLightbarMode(lightbarOff)
   else
-    electrics.set_lightbar_signal(lightbarOn)
-    lightbarCurrentMode = lightbarOn
+    setLightbarMode(lightbarOn)
   end
 end
 
 local function turnLightbarSound()
   if lightbarCurrentMode == lightbarWithSound then
-    electrics.set_lightbar_signal(lightbarOff)
-    lightbarCurrentMode = lightbarOff
+    setLightbarMode(lightbarOff)
   else
-    electrics.set_lightbar_signal(lightbarWithSound)
-    lightbarCurrentMode = lightbarWithSound
+    setLightbarMode(lightbarWithSound)
   end
 end
 
@@ -77,5 +77,28 @@ M.toggleHighBeams = toggleHighBeams
 M.toggleLowBeams = toggleLowBeams
 M.toggleLigthbarLight = turnLightbarLight
 M.toggleLigthbarSound = turnLightbarSound
+
+local myTimer = 0
+local requestToReset = false
+local function updateGFX(dt)
+  if not requestToReset then
+    return
+  end
+
+  myTimer = myTimer + dt
+  if myTimer > 1 then
+    setLightbarMode(lightbarCurrentMode) 
+    requestToReset = false
+    myTimer = 0
+  end
+end
+
+local function onReset()
+  requestToReset = true
+end
+  
+
+M.onReset = onReset
+M.updateGFX = updateGFX
 
 return M

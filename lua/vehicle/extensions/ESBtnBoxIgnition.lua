@@ -84,12 +84,9 @@ M.turnStarter = turnStarter
 M.releaseStarter = releaseStarter
 
 local function restoreIgnition(level)
-  print("Restoring ignition to " .. level)
   if level == ignitionAcc then
-    print("Setting ignition to acc")
     setIgnitionAcc()
   elseif level == ignitionOn then
-    print("Setting ignition to on")
     setIgnitionOn()
   end
 end
@@ -108,6 +105,7 @@ local function updateGFX(dt)
   myTimer = myTimer + dt
   if myTimer > 1 then
       restoreIgnition(curIgnitionPos)
+      requestToReset = false
       myTimer = 0
   end
 end

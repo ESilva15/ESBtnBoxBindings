@@ -78,7 +78,6 @@ local function getDiff(diffObj)
 end
 
 local function openDiff(diffObj)
-  print("Opening diff")
   local diff = getDiff(diffObj)
   if next(diff) == nil then
     return {}
@@ -89,7 +88,6 @@ local function openDiff(diffObj)
 end
 
 local function lockDiff(diffObj)
-  print("Locking diff")
   local diff = getDiff(diffObj)
   if next(diff) == nil then
     return
