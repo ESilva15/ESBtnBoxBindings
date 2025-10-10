@@ -45,7 +45,15 @@ local function toggleLowBeams()
 end
 
 local function toggleBrakeLights()
-  brakeLightSwitch = not brakeLightSwitch
+  print("one day...")
+  -- -- brakeLightSwitch = not brakeLightSwitch
+  -- local lights = controller.getAllControllers()
+  -- print("=================== lights ========================")
+  -- dump(v.data.components.electrics)
+  -- print("=================== lights ========================")
+
+  -- local vehId = be:getPlayerVehicleID(0)
+  -- print("Vehicle ID:", vehId)
 end
 
 M.toggleHighBeams = toggleHighBeams
@@ -89,7 +97,6 @@ local myTimer = 0
 local requestToReset = false
 local function updateGFX(dt)
   if brakeLightSwitch then
-    electrics.values.brake = 0
   end
 
   if not requestToReset then
