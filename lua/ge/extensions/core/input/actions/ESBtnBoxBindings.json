@@ -54,7 +54,7 @@
         "ctx": "vlua",
         "onDown": "extensions.use('ESBtnBoxHeadlights').toggleLigthbarSound()",
         "title": "ESBtnBox Bindings: Toggle Lightbar Sound On",
-        "desc": "Turns the sound on the lightbar"
+        "desc": "Turns the sound and lights on the lightbar"
     },
     "bb_turn_high_four": {
         "cat": "vehicle",
